@@ -24,6 +24,9 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   final, em vez da versão de engenharia.
 
 ### Corrigido
+- Nome duplicado no cabeçalho dos currículos: o Pandoc renderizava o `title`
+  como um `<h1>` no corpo, repetindo o nome que já vem do `cabecalho.md`. Trocado
+  por `pagetitle` (só o `<title>` da aba) em `build.ps1` e `build.sh`.
 - Versão do WeasyPrint fixada e atualizada para a estável mais recente
   (`weasyprint==70.0`) no CI, `build.ps1`, `build.sh` e `README.md`, tornando a
   renderização do PDF reproduzível e alinhando o build local ao publicado.

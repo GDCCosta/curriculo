@@ -45,11 +45,13 @@ for ver in "${versoes[@]}"; do
 
   descricao="Currículo profissional de Gustavo de Camargo Costa"
 
+  # pagetitle define só o <title> da aba do navegador. Usar 'title' faria o
+  # Pandoc repetir o nome como um <h1> no corpo, duplicando o cabeçalho.
   echo "Gerando HTML: $html"
   pandoc "$cabecalho" "$objetivo" "$corpo" \
     --standalone --embed-resources \
     --css "$css" \
-    --metadata title="Gustavo de Camargo Costa - ${titulo}" \
+    --metadata pagetitle="Gustavo de Camargo Costa - ${titulo}" \
     --metadata description="$descricao" \
     --metadata lang=pt-BR \
     -o "$html"
@@ -59,7 +61,7 @@ for ver in "${versoes[@]}"; do
     pandoc "$cabecalho" "$objetivo" "$corpo" \
       --pdf-engine=weasyprint \
       --css "$css" \
-      --metadata title="Gustavo de Camargo Costa - ${titulo}" \
+      --metadata pagetitle="Gustavo de Camargo Costa - ${titulo}" \
       --metadata description="$descricao" \
       --metadata lang=pt-BR \
       -o "$pdf"

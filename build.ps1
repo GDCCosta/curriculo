@@ -35,11 +35,13 @@ foreach ($v in $versoes) {
 
     $descricao = "Currículo profissional de Gustavo de Camargo Costa"
 
+    # pagetitle define só o <title> da aba do navegador. Usar 'title' faria o
+    # Pandoc repetir o nome como um <h1> no corpo, duplicando o cabeçalho.
     Write-Host "Gerando HTML: $html"
     pandoc $cabecalho $objetivo $corpo `
         --standalone --embed-resources `
         --css $css `
-        --metadata title="$($v.Titulo)" `
+        --metadata pagetitle="$($v.Titulo)" `
         --metadata description="$descricao" `
         --metadata lang=pt-BR `
         -o $html
@@ -49,7 +51,7 @@ foreach ($v in $versoes) {
         pandoc $cabecalho $objetivo $corpo `
             --pdf-engine=weasyprint `
             --css $css `
-            --metadata title="$($v.Titulo)" `
+            --metadata pagetitle="$($v.Titulo)" `
             --metadata description="$descricao" `
             --metadata lang=pt-BR `
             -o $pdf
