@@ -1,0 +1,68 @@
+name: Gerar e publicar currículo
+
+# Gera HTML + PDF das duas versões a cada push na branch principal
+# e publica o resultado no GitHub Pages.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # WeasyPrint 70.0 exige Python >= 3.10. Fixar o Python torna o build
+      # reproduzível, sem depender da versão padrão do runner.
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Instalar WeasyPrint e dependências (PDF)
+        run: |
+          sudo apt-get install -y libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi-dev libcairo2
+          pip install "weasyprint==70.0"
+
+      # Reutiliza o mesmo script do build local (build.sh), evitando duplicar
+      # a lógica de geração aqui. Uma só fonte de verdade para o Pandoc.
+      - name: Gerar HTML e PDF
+        run: |
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

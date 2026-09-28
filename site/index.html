@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gustavo de Camargo Costa — Currículo</title>
+  <meta name="description" content="Currículo profissional de Gustavo de Camargo Costa — versões de Engenharia de Materiais e Tecnologia (Dados & Software), em HTML e PDF.">
+  <meta name="author" content="Gustavo de Camargo Costa">
+
+  <!-- Open Graph (compartilhamento em LinkedIn, WhatsApp, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gustavo de Camargo Costa — Currículo">
+  <meta property="og:description" content="Currículo profissional — versões de Engenharia de Materiais e Tecnologia (Dados & Software), em HTML e PDF.">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gustavo de Camargo Costa — Currículo">
+  <meta name="twitter:description" content="Currículo profissional — versões de Engenharia de Materiais e Tecnologia (Dados & Software).">
+  <!--
+    Página inicial com os links para as duas versões do currículo.
+    As cores aqui são próprias (não usam o estilo.css). Ao trocar o tom de azul,
+    mantenha estes valores alinhados às variáveis de cor do estilo.css
+    (--cor-faixa #1d4ed8, --cor-primaria #1e40af, --cor-secundaria #2563eb)
+    para um visual consistente entre a home e os currículos.
+  -->
+  <style>
+    html {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: #f4f6f9;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .cartao {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      padding: 2.5rem 3rem;
+      max-width: 560px;
+      width: 90%;
+      text-align: center;
+    }
+    h1 { color: #1e40af; margin-bottom: .3rem; }
+    p.sub { color: #555; margin-top: 0; }
+    .links { display: flex; flex-direction: column; gap: .8rem; margin-top: 1.8rem; }
+    .grupo { border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem; }
+    .grupo h2 { font-size: 1rem; color: #2563eb; margin: 0 0 .6rem; }
+    a.botao {
+      display: inline-block;
+      background: #1d4ed8;
+      color: #fff;
+      text-decoration: none;
+      padding: .55rem 1rem;
+      border-radius: 8px;
+      margin: .2rem;
+      font-size: .92rem;
+      transition: background .15s ease;
+    }
+    a.botao:hover { background: #1e40af; }
+    a.botao.alt { background: #eef2ff; color: #1d4ed8; }
+    a.botao.alt:hover { background: #dde7fd; }
+    footer { margin-top: 1.6rem; font-size: .8rem; color: #888; }
+    footer a { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <div class="cartao">
+    <h1>Gustavo de Camargo Costa</h1>
+    <p class="sub">Currículo profissional — escolha a versão</p>
+
+    <div class="links">
+      <div class="grupo">
+        <h2>Engenharia de Materiais</h2>
+        <a class="botao" href="curriculo-engenharia.html" aria-label="Ver currículo de Engenharia de Materiais online">Ver online</a>
+        <a class="botao alt" href="curriculo-engenharia.pdf" aria-label="Baixar currículo de Engenharia de Materiais em PDF">Baixar PDF</a>
+      </div>
+      <div class="grupo">
+        <h2>Tecnologia (Dados &amp; Software)</h2>
+        <a class="botao" href="curriculo-ti.html" aria-label="Ver currículo de Tecnologia online">Ver online</a>
+        <a class="botao alt" href="curriculo-ti.pdf" aria-label="Baixar currículo de Tecnologia em PDF">Baixar PDF</a>
+      </div>
+    </div>
+
+    <footer>
+      📧 <a href="mailto:gustavocoltre@gmail.com">gustavocoltre@gmail.com</a> &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/gustavocamargocosta">LinkedIn</a>
+    </footer>
+  </div>
+</body>
+</html>

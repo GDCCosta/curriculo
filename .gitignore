@@ -1,0 +1,14 @@
+# Saída gerada (HTML/PDF) — recriada pelo build e pelo GitHub Actions
+/build/
+
+# Sistema
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Cache do Python (gerado pelo preview.py)
+__pycache__/
+*.pyc
+
+# Configurações locais do editor
+.vscode/
