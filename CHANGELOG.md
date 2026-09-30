@@ -18,6 +18,9 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   melhorando a leitura por tecnologias assistivas.
 
 ### Alterado
+- Documentação atualizada com o nome real do repositório (`GDCCosta/Curriculo`)
+  e a URL do GitHub Pages (`https://gdccosta.github.io/Curriculo/`), com nota
+  sobre a sensibilidade a maiúsculas no nome.
 - O GitHub Actions (`build.yml`) passou a reutilizar o `build.sh` em vez de
   duplicar o loop do Pandoc — uma só fonte de verdade para a geração.
 - `preview.py` agora abre a página inicial (`build/index.html`) no navegador ao

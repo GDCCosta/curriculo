@@ -186,7 +186,14 @@ Depois, no repositório no GitHub:
 1. Vá em **Settings → Pages**.
 2. Em **Build and deployment → Source**, selecione **GitHub Actions**.
 
-A partir daí, cada `git push` na branch `main` republica o site. A URL aparece em **Settings → Pages** (algo como `https://SEU-USUARIO.github.io/curriculo/`).
+A partir daí, cada `git push` na branch `main` republica o site. A URL aparece em **Settings → Pages** (algo como `https://SEU-USUARIO.github.io/nome-do-repo/`).
+
+> **Este projeto:** o repositório é
+> [`GDCCosta/Curriculo`](https://github.com/GDCCosta/Curriculo) e o site é
+> publicado em **https://gdccosta.github.io/Curriculo/**. O nome do repositório
+> diferencia maiúsculas na URL do Pages, então use `Curriculo` com C maiúsculo.
+> Se um dia renomear o repositório, lembre de atualizar o remote local com
+> `git remote set-url origin <nova-URL>`.
 
 > **Build reproduzível:** o `build.yml` fixa a versão do Python
 > (`actions/setup-python@v5`, 3.12) e do WeasyPrint (`weasyprint==70.0`), para
